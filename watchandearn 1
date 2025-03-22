@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earnings & Withdrawal System</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .balance, .withdrawal-form, .admin-dashboard {
+            margin-bottom: 40px;
+        }
+        .balance p {
+            font-size: 1.2em;
+            color: #555;
+        }
+        .withdrawal-form input, .withdrawal-form select, .withdrawal-form button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .withdrawal-form button {
+            background: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .withdrawal-form button:hover {
+            background: #218838;
+        }
+        .admin-dashboard table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .admin-dashboard th, .admin-dashboard td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .admin-dashboard th {
+            background: #f8f9fa;
+            font-weight: bold;
+        }
+        .admin-dashboard tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .admin-dashboard tr:hover {
+            background: #f1f1f1;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- User Balance Section -->
+        <div class="balance">
+            <h1>Your Earnings</h1>
+            <p>Total Balance: <strong>$50.00</strong></p>
+            <p>Available for Withdrawal: <strong>$40.00</strong></p>
+        </div>
+
+        <!-- Withdrawal Form Section -->
+        <div class="withdrawal-form">
+            <h2>Withdraw Earnings</h2>
+            <form id="withdrawalForm">
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" min="2" max="40" placeholder="Enter amount (min $2)" required>
+
+                <label for="method">Payment Method:</label>
+                <select id="method" name="method" required>
+                    <option value="bkash">Bkash</option>
+                    <option value="nagad">Nagad</option>
+                    <option value="paypal">PayPal</option>
+                </select>
+
+                <label for="details">Payment Details:</label>
+                <input type="text" id="details" name="details" placeholder="Enter Bkash/Nagad number or PayPal email" required>
+
+                <button type="submit">Withdraw Now</button>
+            </form>
+        </div>
+
+        <!-- Admin Dashboard Section -->
+        <div class="admin-dashboard">
+            <h2>Admin Dashboard</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Amount</th>
+                        <th>Payment Method</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>$10.00</td>
+                        <td>Bkash</td>
+                        <td>Paid</td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>$20.00</td>
+                        <td>Nagad</td>
+                        <td>Pending</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer">
+            <p>&copy; 2025 Earnings App. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for form submission (example)
+        document.getElementById('withdrawalForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const amount = document.getElementById('amount').value;
+            const method = document.getElementById('method').value;
+            const details = document.getElementById('details').value;
+
+            alert(Withdrawal request submitted!\nAmount: $${amount}\nMethod: ${method}\nDetails: ${details});
+        });
+    </script>
+</body>
+</html>
